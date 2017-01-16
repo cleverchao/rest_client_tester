@@ -11,9 +11,15 @@ app.use('/', function(req, res) {
     req.addListener("end", function() {
         var output = {
             url: req.url,
-            method: req.method
-
+            method: req.method,
+            data: postData
         };
+        for (var i in output) {
+            if (output.hasOwnProperty(i) && output[i]) {
+                console.log(i + ' : ' + output[i]);
+            }
+        }
+        console.log('----------------------------------------');
         res.end();
     });
 
