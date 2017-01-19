@@ -12,7 +12,8 @@ app.use('/', function(req, res) {
         var output = {
             url: req.url,
             method: req.method,
-            data: postData
+            data: postData,
+            cookies: req.headers.cookie
         };
         for (var i in output) {
             if (output.hasOwnProperty(i) && output[i]) {
@@ -20,7 +21,7 @@ app.use('/', function(req, res) {
             }
         }
         console.log('----------------------------------------');
-        res.end();
+        res.end('{"data":"response data"}');
     });
 
 });
